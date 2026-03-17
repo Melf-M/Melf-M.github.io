@@ -13,22 +13,36 @@
       --text:#edf1f5;
       --muted:#b9c2cc;
       --accent:#9ec5a2;
+      --topbar:rgba(17,20,24,0.82);
+      --embed-bg:#101317;
       --maxw:1100px;
       --radius:16px;
     }
 
-    *{box-sizing:border-box}
+    body.light-mode{
+      --bg:#f4f1ea;
+      --bg-soft:#ebe6dc;
+      --surface:#ffffff;
+      --line:rgba(0,0,0,0.10);
+      --text:#17202a;
+      --muted:#55616d;
+      --accent:#4d7c57;
+      --topbar:rgba(244,241,234,0.88);
+      --embed-bg:#f7f7f7;
+    }
 
+    *{box-sizing:border-box}
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top, rgba(158,197,162,0.08), transparent 28%),
-        linear-gradient(180deg, #15191e 0%, #101317 100%);
+        radial-gradient(circle at top, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       color:var(--text);
       line-height:1.7;
+      transition: background .25s ease, color .25s ease;
     }
 
     img, iframe{
@@ -52,9 +66,9 @@
       position:sticky;
       top:0;
       z-index:20;
-      background:rgba(17,20,24,0.82);
+      background:var(--topbar);
       backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid color-mix(in srgb, var(--text) 8%, transparent);
     }
 
     .topbar-inner{
@@ -63,6 +77,14 @@
       align-items:center;
       justify-content:space-between;
       gap:1rem;
+    }
+
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .brand{
@@ -87,9 +109,26 @@
       color:var(--text);
     }
 
+    .theme-toggle{
+      appearance:none;
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
+      color:var(--text);
+      padding:.62rem .95rem;
+      border-radius:999px;
+      font:inherit;
+      font-size:.92rem;
+      cursor:pointer;
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover{
+      transform:translateY(-1px);
+    }
+
     .hero{
       padding:84px 0 56px;
-      border-bottom:1px solid rgba(255,255,255,0.05);
+      border-bottom:1px solid color-mix(in srgb, var(--text) 6%, transparent);
     }
 
     .eyebrow{
@@ -122,7 +161,7 @@
       flex-wrap:wrap;
       margin-top:2rem;
       padding-top:1.25rem;
-      border-top:1px solid rgba(255,255,255,0.08);
+      border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent);
     }
 
     .meta-item{
@@ -146,7 +185,7 @@
     }
 
     .section + .section{
-      border-top:1px solid rgba(255,255,255,0.05);
+      border-top:1px solid color-mix(in srgb, var(--text) 6%, transparent);
     }
 
     .section-head{
@@ -203,7 +242,7 @@
     }
 
     .plot{
-      background:rgba(255,255,255,0.03);
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
       border:1px solid var(--line);
       border-radius:var(--radius);
       overflow:hidden;
@@ -211,8 +250,8 @@
 
     .plot-label{
       padding:.9rem 1rem;
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.02);
+      border-bottom:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      background:color-mix(in srgb, var(--surface) 90%, transparent);
     }
 
     .plot-label strong{
@@ -236,17 +275,45 @@
     .plot img,
     .plot iframe{
       border-radius:12px;
-      background:#101317;
+      background:var(--embed-bg);
     }
 
     .plot iframe{
-      min-height:420px;
+      min-height:460px;
     }
 
-    .two-col{
+    .plot.tall iframe{
+      min-height:640px;
+    }
+
+    .plot.xl iframe{
+      min-height:760px;
+    }
+
+    .interactive-stack{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1.5rem;
+      gap:2rem;
+    }
+
+    .flow-text{
+      max-width:72ch;
+    }
+
+    .flow-text p,
+    .flow-text li{
+      color:var(--muted);
+    }
+
+    .flow-text h3{
+      margin:0 0 .8rem;
+      font-size:1.05rem;
+      font-weight:600;
+      letter-spacing:-.01em;
+    }
+
+    .flow-text ul{
+      margin:.8rem 0 0 1.2rem;
+      padding:0;
     }
 
     .closing{
@@ -266,13 +333,20 @@
 
     @media (max-width: 900px){
       .split,
-      .split.reverse,
-      .two-col{
+      .split.reverse{
         grid-template-columns:1fr;
       }
 
       h1{
         max-width:14ch;
+      }
+
+      .plot.tall iframe{
+        min-height:520px;
+      }
+
+      .plot.xl iframe{
+        min-height:600px;
       }
     }
 
@@ -282,6 +356,10 @@
         flex-direction:column;
         justify-content:center;
         padding:.8rem 0;
+      }
+
+      .topbar-right{
+        align-items:flex-start;
       }
 
       .hero{
@@ -295,6 +373,22 @@
       .container{
         width:min(calc(100% - 1rem), var(--maxw));
       }
+
+      .theme-toggle{
+        padding:.58rem .85rem;
+      }
+
+      .plot iframe{
+        min-height:420px;
+      }
+
+      .plot.tall iframe{
+        min-height:480px;
+      }
+
+      .plot.xl iframe{
+        min-height:540px;
+      }
     }
   </style>
 </head>
@@ -302,13 +396,18 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">Data Science Portfolio</div>
-      <nav class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#trend">Trend</a>
-        <a href="#patterns">Patterns</a>
-        <a href="#distribution">Distribution</a>
-        <a href="#interactive">Interactive</a>
-      </nav>
+      <div class="topbar-right">
+        <nav class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#trend">Trend</a>
+          <a href="#patterns">Patterns</a>
+          <a href="#distribution">Distribution</a>
+          <a href="#interactive">Interactive</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+          Light mode
+        </button>
+      </div>
     </div>
   </header>
 
@@ -449,24 +548,55 @@
         <div class="section-head">
           <div class="section-kicker">Part 4</div>
           <h2>Interactive views</h2>
-          <p>[End with interactive charts that let the reader inspect seasonal and normalized structure more closely.]</p>
+          <p>[End with interactive charts that let the reader inspect temporal and normalized structure more closely.]</p>
         </div>
 
-        <div class="two-col">
-          <div class="plot">
+        <div class="interactive-stack">
+          <div class="plot tall">
+            <div class="plot-label">
+              <strong>Animated view</strong>
+              <span>Use this embedded animation to introduce motion or evolving structure in the data</span>
+            </div>
+            <div class="plot-body">
+              <iframe src="images/sf_drug_use.html" title="Animated San Francisco drug use view"></iframe>
+            </div>
+          </div>
+
+          <div class="flow-text">
+            <h3>Interpretation</h3>
+            <p>
+              [Use this text block between the interactive views to guide the reader. You can explain what the animation
+              shows, what to look for over time, and how it connects to the broader story above.]
+            </p>
+            <ul>
+              <li>[Explain what changes in the animation]</li>
+              <li>[Point out what the reader should notice]</li>
+              <li>[Connect it to the trend story]</li>
+            </ul>
+          </div>
+
+          <div class="plot xl">
             <div class="plot-label">
               <strong>Quarterly interactive view</strong>
-              <span>Explore shifts and seasonality</span>
+              <span>Explore shifts and seasonality with a larger frame</span>
             </div>
             <div class="plot-body">
               <iframe src="images/drug_quartly_interactive.html" title="Interactive quarterly view"></iframe>
             </div>
           </div>
 
-          <div class="plot">
+          <div class="flow-text">
+            <h3>Interpretation</h3>
+            <p>
+              [Use this middle text block for context before the normalized chart. This gives you room to explain
+              what the quarterly view reveals that the static yearly chart does not.]
+            </p>
+          </div>
+
+          <div class="plot xl">
             <div class="plot-label">
               <strong>Normalized count distribution</strong>
-              <span>Compare years after adjusting for scale</span>
+              <span>Compare years after adjusting for scale in a wider, taller view</span>
             </div>
             <div class="plot-body">
               <iframe src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution"></iframe>
@@ -476,8 +606,8 @@
 
         <div class="closing">
           <p class="note">
-            [Write a short conclusion here that ties the four views together: the main long-term trend, the time-of-day
-            structure, the spread across years, and what the interactive charts add.]
+            [Write a short conclusion here that ties the long-term trend, the time-of-day structure, the spread across years,
+            the animation, and the interactive charts together.]
           </p>
         </div>
       </div>
@@ -492,5 +622,29 @@
       </div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const storageKey = 'sf-drug-theme';
+
+      function applyTheme(mode) {
+        const isLight = mode === 'light';
+        body.classList.toggle('light-mode', isLight);
+        toggle.textContent = isLight ? 'Dark mode' : 'Light mode';
+        toggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      }
+
+      const saved = localStorage.getItem(storageKey);
+      applyTheme(saved === 'light' ? 'light' : 'dark');
+
+      toggle.addEventListener('click', function () {
+        const next = body.classList.contains('light-mode') ? 'dark' : 'light';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+    }());
+  </script>
 </body>
 </html>
