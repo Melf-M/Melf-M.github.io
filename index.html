@@ -295,6 +295,35 @@
       gap:2rem;
     }
 
+    .interactive-tools{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top:.9rem;
+    }
+
+    .map-btn,
+    .map-link{
+      appearance:none;
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--surface) 86%, transparent);
+      color:var(--text);
+      padding:.58rem .9rem;
+      border-radius:999px;
+      font:inherit;
+      font-size:.9rem;
+      cursor:pointer;
+    }
+
+    .map-link{
+      display:inline-flex;
+      align-items:center;
+    }
+
+    .interactive-frame{
+      transition:min-height .25s ease;
+    }
+
     .flow-text{
       max-width:72ch;
     }
@@ -388,6 +417,18 @@
 
       .plot.xl iframe{
         min-height:540px;
+      }
+
+      .interactive-frame{
+        min-height:320px !important;
+      }
+
+      .interactive-frame.expanded{
+        min-height:78vh !important;
+      }
+
+      .plot-body{
+        padding:.8rem;
       }
     }
   </style>
@@ -558,7 +599,11 @@
               <span>Use this embedded animation to introduce motion or evolving structure in the data</span>
             </div>
             <div class="plot-body">
-              <iframe src="images/sf_drug_use.html" title="Animated San Francisco drug use view"></iframe>
+              <iframe class="interactive-frame" src="images/sf_drug_use.html" title="Animated San Francisco drug use view" loading="lazy" allowfullscreen></iframe>
+              <div class="interactive-tools">
+                <button class="map-btn" type="button" data-toggle-frame>Expand view</button>
+                <a class="map-link" href="images/sf_drug_use.html" target="_blank" rel="noopener">Open full view</a>
+              </div>
             </div>
           </div>
 
@@ -581,7 +626,11 @@
               <span>Explore shifts and seasonality with a larger frame</span>
             </div>
             <div class="plot-body">
-              <iframe src="images/drug_quartly_interactive.html" title="Interactive quarterly view"></iframe>
+              <iframe class="interactive-frame" src="images/drug_quartly_interactive.html" title="Interactive quarterly view" loading="lazy" allowfullscreen></iframe>
+              <div class="interactive-tools">
+                <button class="map-btn" type="button" data-toggle-frame>Expand view</button>
+                <a class="map-link" href="images/drug_quartly_interactive.html" target="_blank" rel="noopener">Open full view</a>
+              </div>
             </div>
           </div>
 
@@ -599,7 +648,11 @@
               <span>Compare years after adjusting for scale in a wider, taller view</span>
             </div>
             <div class="plot-body">
-              <iframe src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution"></iframe>
+              <iframe class="interactive-frame" src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution" loading="lazy" allowfullscreen></iframe>
+              <div class="interactive-tools">
+                <button class="map-btn" type="button" data-toggle-frame>Expand view</button>
+                <a class="map-link" href="images/drug_normalzied_counts_dist.html" target="_blank" rel="noopener">Open full view</a>
+              </div>
             </div>
           </div>
         </div>
@@ -643,6 +696,18 @@
         const next = body.classList.contains('light-mode') ? 'dark' : 'light';
         localStorage.setItem(storageKey, next);
         applyTheme(next);
+      });
+    }());
+
+    (function () {
+      const toggles = document.querySelectorAll('[data-toggle-frame]');
+
+      toggles.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const frame = button.closest('.plot-body').querySelector('.interactive-frame');
+          const expanded = frame.classList.toggle('expanded');
+          button.textContent = expanded ? 'Collapse view' : 'Expand view';
+        });
       });
     }());
   </script>
