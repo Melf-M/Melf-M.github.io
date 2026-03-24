@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drug / Narcotic Crimes in San Francisco (2003–2025)</title>
+  <title>Burglary in San Francisco (2015–2025)</title>
   <style>
     :root{
       --bg:#111418;
@@ -15,7 +15,7 @@
       --accent:#9ec5a2;
       --topbar:rgba(17,20,24,0.82);
       --embed-bg:#101317;
-      --maxw:1100px;
+      --maxw:1200px;
       --radius:16px;
     }
 
@@ -55,6 +55,10 @@
     a{
       color:inherit;
       text-decoration:none;
+    }
+
+    figure{
+      margin:0;
     }
 
     .container{
@@ -144,13 +148,13 @@
       font-size:clamp(2.6rem, 6vw, 5rem);
       line-height:1.02;
       letter-spacing:-0.04em;
-      max-width:11ch;
+      max-width:none;
       font-weight:700;
     }
 
     .lead{
       margin:0;
-      max-width:62ch;
+      max-width:none;
       color:var(--muted);
       font-size:1.06rem;
     }
@@ -181,7 +185,7 @@
     }
 
     .section{
-      padding:58px 0;
+      padding:48px 0;
     }
 
     .section + .section{
@@ -189,7 +193,7 @@
     }
 
     .section-head{
-      margin-bottom:1.5rem;
+      margin-bottom:2rem;
     }
 
     .section-kicker{
@@ -202,41 +206,49 @@
 
     .section-head h2{
       margin:0 0 .5rem;
-      font-size:clamp(1.7rem, 3vw, 2.5rem);
+      font-size:clamp(1.9rem, 3vw, 2.7rem);
       letter-spacing:-.03em;
       font-weight:650;
     }
 
     .section-head p{
       margin:0;
-      max-width:68ch;
+      max-width:none;
       color:var(--muted);
     }
 
-    .split{
+    .story-block{
       display:grid;
-      grid-template-columns:minmax(260px, 0.9fr) minmax(0, 1.1fr);
-      gap:2rem;
-      align-items:start;
+      gap:1.5rem;
     }
 
-    .split.reverse{
-      grid-template-columns:minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    .story-intro,
+    .story-body,
+    .flow-text,
+    .closing{
+      max-width:none;
     }
 
-    .text-block p,
-    .text-block li{
+    .story-intro p,
+    .story-body p,
+    .story-body li,
+    .flow-text p,
+    .flow-text li,
+    .closing p{
       color:var(--muted);
     }
 
-    .text-block h3{
+    .story-body h3,
+    .flow-text h3{
       margin:0 0 .8rem;
       font-size:1.05rem;
       font-weight:600;
       letter-spacing:-.01em;
+      color:var(--text);
     }
 
-    .text-block ul{
+    .story-body ul,
+    .flow-text ul{
       margin:.8rem 0 0 1.2rem;
       padding:0;
     }
@@ -246,17 +258,18 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       overflow:hidden;
+      width:100%;
     }
 
     .plot-label{
-      padding:.9rem 1rem;
+      padding:.95rem 1rem;
       border-bottom:1px solid color-mix(in srgb, var(--text) 6%, transparent);
       background:color-mix(in srgb, var(--surface) 90%, transparent);
     }
 
     .plot-label strong{
       display:block;
-      font-size:.98rem;
+      font-size:1rem;
       font-weight:600;
       letter-spacing:-.01em;
     }
@@ -278,8 +291,17 @@
       background:var(--embed-bg);
     }
 
-    .plot iframe{
-      min-height:460px;
+    .feature-plot{
+      margin:0;
+    }
+
+    .feature-plot iframe{
+      min-height:520px;
+    }
+
+    .interactive-stack{
+      display:grid;
+      gap:2rem;
     }
 
     .plot.tall iframe{
@@ -290,40 +312,11 @@
       min-height:760px;
     }
 
-    .interactive-stack{
-      display:grid;
-      gap:2rem;
-    }
-
-    .flow-text{
-      max-width:72ch;
-    }
-
-    .flow-text p,
-    .flow-text li{
-      color:var(--muted);
-    }
-
-    .flow-text h3{
-      margin:0 0 .8rem;
-      font-size:1.05rem;
-      font-weight:600;
-      letter-spacing:-.01em;
-    }
-
-    .flow-text ul{
-      margin:.8rem 0 0 1.2rem;
-      padding:0;
-    }
-
-    .closing{
-      max-width:72ch;
-    }
-
     .note{
       margin-top:1rem;
       color:var(--muted);
       font-size:.95rem;
+      max-width:72ch;
     }
 
     code{
@@ -332,13 +325,12 @@
     }
 
     @media (max-width: 900px){
-      .split,
-      .split.reverse{
-        grid-template-columns:1fr;
-      }
-
       h1{
         max-width:14ch;
+      }
+
+      .feature-plot iframe{
+        min-height:460px;
       }
 
       .plot.tall iframe{
@@ -367,7 +359,7 @@
       }
 
       .section{
-        padding:46px 0;
+        padding:48px 0;
       }
 
       .container{
@@ -378,8 +370,12 @@
         padding:.58rem .85rem;
       }
 
-      .plot iframe{
-        min-height:420px;
+      .story-block{
+        gap:1.25rem;
+      }
+
+      .feature-plot iframe{
+        min-height:400px;
       }
 
       .plot.tall iframe{
@@ -417,22 +413,23 @@
         <div class="eyebrow">San Francisco · 2003–2025</div>
         <h1>Drug / Narcotic Crime Trends</h1>
         <p class="lead">
-          [Write a short introduction here. Keep it simple: what this project studies, what period it covers,
-          and what readers will learn from the visualizations below.]
+          This project examines how drug and narcotic-related crime in San Francisco changed from 2003 to 2025.
+          The visualizations below move from the long-run trend to yearly variation and then to within-day timing
+          patterns, creating a more narrative view of how these incidents evolved over time.
         </p>
 
         <div class="meta">
           <div class="meta-item">
             <div class="meta-label">Question</div>
-            <div class="meta-value">How has drug / narcotic crime changed over time?</div>
+            <div class="meta-value">How has drug / narcotic crime changed over time in San Fransico?</div>
           </div>
           <div class="meta-item">
-            <div class="meta-label">Window</div>
+            <div class="meta-label">Time period</div>
             <div class="meta-value">2003–2025</div>
           </div>
           <div class="meta-item">
             <div class="meta-label">Views</div>
-            <div class="meta-value">Trend, time-of-day, distribution, interactive exploration</div>
+            <div class="meta-value">Trends, time-of-day, interactive exploration</div>
           </div>
         </div>
       </div>
@@ -443,24 +440,23 @@
         <div class="section-head">
           <div class="section-kicker">Part 1</div>
           <h2>The long-run trajectory</h2>
-          <p>[Use this section to introduce the main trend before moving into deeper patterns.]</p>
+          <p>
+            The first chart establishes the broadest pattern in the dataset. It gives a high-level view of how
+            drug and narcotic incidents rose, fell, or stabilized across the full period before moving into more
+            detailed distributional views.
+          </p>
         </div>
 
-        <div class="split">
-          <div class="text-block">
-            <h3>Interpretation</h3>
+        <div class="story-block">
+          <div class="story-intro">
             <p>
-              [Write your explanation of the yearly trend here. This should describe the main rise-and-fall pattern,
-              periods of change, and the core takeaway you want the reader to remember.]
+              Looking first at annual totals provides the clearest entry point into the story. Before asking how
+              incidents vary by hour or by distribution, it helps to see the overall shape of change across two
+              decades and identify the major turning points in the series.
             </p>
-            <ul>
-              <li>[Highlight major peaks or drops]</li>
-              <li>[Mention stable periods]</li>
-              <li>[End with one clear takeaway]</li>
-            </ul>
           </div>
 
-          <div class="plot">
+          <figure class="plot feature-plot">
             <div class="plot-label">
               <strong>Yearly trend</strong>
               <span>Counts of drug / narcotic incidents by year</span>
@@ -468,6 +464,21 @@
             <div class="plot-body">
               <img src="images/Drug_yearly_trend.png" alt="Yearly trend of drug or narcotic crimes in San Francisco">
             </div>
+          </figure>
+
+          <div class="story-body">
+            <h3>Interpretation</h3>
+            <p>
+              This chart acts as the backbone of the page. Use this space to explain the most important changes in
+              the yearly pattern: where the series climbs, where it falls, and whether recent years suggest a new
+              phase or a continuation of earlier behavior. The goal is to leave the reader with one strong summary
+              idea before they continue to the more detailed views below.
+            </p>
+            <ul>
+              <li>Point out the largest increases or declines.</li>
+              <li>Identify any years or periods that appear relatively stable.</li>
+              <li>End with one clear takeaway that frames the rest of the narrative.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -478,31 +489,44 @@
         <div class="section-head">
           <div class="section-kicker">Part 2</div>
           <h2>Variation across years</h2>
-          <p>[Explain the violin / box plot here. Focus on distributional spread, outliers, and whether some years
-              appear more volatile or more stable than others.]</p>
+          <p>
+            After the long-run trend, the next step is to ask how activity is distributed within each year.
+            This adds nuance by showing spread, concentration, and irregularity that annual totals alone cannot capture.
+          </p>
         </div>
 
-        <div class="split reverse">
-          <div class="plot">
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+              A distributional chart helps reveal whether some years are tightly concentrated around certain time
+              patterns while others are more diffuse or volatile. It shifts the emphasis from total volume to the
+              shape of activity within each year.
+            </p>
+          </div>
+
+          <figure class="plot feature-plot">
             <div class="plot-label">
               <strong>Time-of-day distribution by year</strong>
               <span>How daily timing patterns shift across years</span>
             </div>
             <div class="plot-body">
-                <img src="images/Violin_box_drug_yearly.png" alt="Violin and box plot for yearly drug or narcotic crime patterns">
+              <!--<img src="images/Violin_box_drug_yearly.png" alt="Violin and box plot for yearly drug or narcotic crime patterns">-->
+               <iframe src="images/drug_quartly_interactive.html" title=""></iframe>
             </div>
-          </div>
+          </figure>
 
-          <div class="text-block">
+          <div class="story-body">
             <h3>Interpretation</h3>
             <p>
-              [Describe whether incidents cluster around specific hours, whether the pattern changes from one year
-              to another, and how concentrated or spread out activity appears.]
+              Use this section to describe whether incidents are clustered or broadly spread across the day in each
+              year, and whether that shape changes meaningfully over time. This is also a good place to comment on
+              outliers, concentration, and volatility, then connect those observations back to the broader rise-and-fall
+              pattern shown in the first chart.
             </p>
             <ul>
-              <li>[Comment on spread]</li>
-              <li>[Comment on skew or outliers]</li>
-              <li>[Connect the distribution back to the long-run trend]</li>
+              <li>Comment on whether spread becomes narrower or wider across different years.</li>
+              <li>Note skew, concentration, or outlier behavior where relevant.</li>
+              <li>Explain how these yearly shapes support or complicate the long-run trend story.</li>
             </ul>
           </div>
         </div>
@@ -514,104 +538,158 @@
         <div class="section-head">
           <div class="section-kicker">Part 3</div>
           <h2>Within-day timing patterns</h2>
-          <p>[Use this section to explain spread, skew, and how consistent yearly behavior appears.]</p>
+          <p>
+            This section narrows the focus from long-term yearly structure to the rhythm of incidents within the day,
+            highlighting when activity tends to happen and whether those patterns remain consistent over time.
+          </p>
         </div>
 
-        <div class="split">
-          <div class="text-block">
-            <h3>Interpretation</h3>
+        <div class="story-block">
+          <div class="story-intro">
             <p>
-              [This section shifts from yearly totals to when incidents happen throughout the day.]
+              Timing patterns often reveal structure that is easy to miss in yearly aggregates. By shifting attention
+              to the daily cycle, the visualization can show not only how much activity occurred, but when it tends
+              to be concentrated and whether those concentrations change over time.
             </p>
-            <ul>
-              <li>[Describe dominant hours]</li>
-              <li>[Describe visible shifts]</li>
-              <li>[Explain why the timing pattern matters]</li>
-            </ul>
           </div>
 
-          <div class="plot">
+          <figure class="plot feature-plot">
             <div class="plot-label">
               <strong>Yearly distribution</strong>
               <span>Distributional view of incident counts</span>
             </div>
             <div class="plot-body">
-              <img src="images/drug_timeofday_yearly.png" alt="Time-of-day distribution of drug or narcotic crimes by year">
+              <!--<img src="images/drug_timeofday_yearly.png" alt="Time-of-day distribution of drug or narcotic crimes by year">-->
+              <iframe src="images/interactive_violin_box_by_district.html" title=""></iframe>
             </div>
+          </figure>
+
+          <div class="story-body">
+            <h3>Interpretation</h3>
+            <p>
+              This is where you explain the daily rhythm visible in the data. Describe the parts of the day where
+              incidents appear most concentrated, whether those concentrations shift over the years, and why the
+              timing pattern matters for understanding the broader development of drug-related crime in the city.
+            </p>
+            <ul>
+              <li>Describe the dominant hours or daily windows.</li>
+              <li>Point out any visible shifts or recurring regularities.</li>
+              <li>Show how timing patterns complement the story told by yearly totals.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <!--
     <section class="section" id="interactive">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Part 4</div>
           <h2>Interactive views</h2>
-          <p>[End with interactive charts that let the reader inspect temporal and normalized structure more closely.]</p>
+          <p>
+            The interactive section extends the static narrative by letting the reader inspect motion, seasonality,
+            and normalized structure in more detail while still following a guided editorial flow.
+          </p>
         </div>
 
         <div class="interactive-stack">
-          <div class="plot tall">
-            <div class="plot-label">
-              <strong>Animated view</strong>
-              <span>Use this embedded animation to introduce motion or evolving structure in the data</span>
+          <div class="story-block">
+            <div class="story-intro">
+              <p>
+                This animated view introduces movement and change over time. It can help the reader see evolution
+                that feels less immediate in a single static chart and acts as a bridge between summary and exploration.
+              </p>
             </div>
-            <div class="plot-body">
-              <iframe src="images/sf_drug_use.html" title="Animated San Francisco drug use view"></iframe>
+
+            <figure class="plot tall feature-plot">
+              <div class="plot-label">
+                <strong>Animated view</strong>
+                <span>Use this embedded animation to introduce motion or evolving structure in the data</span>
+              </div>
+              <div class="plot-body">
+                <iframe src="images/sf_drug_use.html" title="Animated San Francisco drug use view"></iframe>
+              </div>
+            </figure>
+
+            <div class="story-body">
+              <h3>Interpretation</h3>
+              <p>
+                Explain what changes in the animation, what the reader should watch for, and how the motion helps
+                reinforce or complicate the earlier static trend story.
+              </p>
+              <ul>
+                <li>Describe the main changing element in the animation.</li>
+                <li>Tell the reader what pattern is most important to notice.</li>
+                <li>Connect the animation back to the narrative above.</li>
+              </ul>
             </div>
           </div>
 
-          <div class="flow-text">
-            <h3>Interpretation</h3>
-            <p>
-              [Use this text block between the interactive views to guide the reader. You can explain what the animation
-              shows, what to look for over time, and how it connects to the broader story above.]
-            </p>
-            <ul>
-              <li>[Explain what changes in the animation]</li>
-              <li>[Point out what the reader should notice]</li>
-              <li>[Connect it to the trend story]</li>
-            </ul>
+          <div class="story-block">
+            <div class="story-intro">
+              <p>
+                After the animated view, the quarterly interactive chart gives the reader more control while still
+                staying close to the core narrative structure.
+              </p>
+            </div>
+
+            <figure class="plot xl feature-plot">
+              <div class="plot-label">
+                <strong>Quarterly interactive view</strong>
+                <span>Explore shifts and seasonality with a larger frame</span>
+              </div>
+              <div class="plot-body">
+                <iframe src="images/drug_quartly_interactive.html" title="Interactive quarterly view"></iframe>
+              </div>
+            </figure>
+
+            <div class="story-body">
+              <h3>Interpretation</h3>
+              <p>
+                Use this section to explain what the quarterly scale reveals that is not obvious in the annual view,
+                especially around shorter-term movement, seasonality, or repeated fluctuations.
+              </p>
+            </div>
           </div>
 
-          <div class="plot xl">
-            <div class="plot-label">
-              <strong>Quarterly interactive view</strong>
-              <span>Explore shifts and seasonality with a larger frame</span>
+          <div class="story-block">
+            <div class="story-intro">
+              <p>
+                The final interactive view lets the reader compare patterns after adjusting for differences in scale,
+                making it easier to focus on shape rather than absolute magnitude.
+              </p>
             </div>
-            <div class="plot-body">
-              <iframe src="images/drug_quartly_interactive.html" title="Interactive quarterly view"></iframe>
-            </div>
-          </div>
 
-          <div class="flow-text">
-            <h3>Interpretation</h3>
-            <p>
-              [Use this middle text block for context before the normalized chart. This gives you room to explain
-              what the quarterly view reveals that the static yearly chart does not.]
-            </p>
-          </div>
+            <figure class="plot xl feature-plot">
+              <div class="plot-label">
+                <strong>Normalized count distribution</strong>
+                <span>Compare years after adjusting for scale in a wider, taller view</span>
+              </div>
+              <div class="plot-body">
+                <iframe src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution"></iframe>
+              </div>
+            </figure>
 
-          <div class="plot xl">
-            <div class="plot-label">
-              <strong>Normalized count distribution</strong>
-              <span>Compare years after adjusting for scale in a wider, taller view</span>
-            </div>
-            <div class="plot-body">
-              <iframe src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution"></iframe>
+            <div class="story-body">
+              <h3>Interpretation</h3>
+              <p>
+                Use this final block to explain what becomes more visible after normalization and how that deeper
+                comparison supports the larger argument of the page.
+              </p>
             </div>
           </div>
         </div>
 
         <div class="closing">
           <p class="note">
-            [Write a short conclusion here that ties the long-term trend, the time-of-day structure, the spread across years,
-            the animation, and the interactive charts together.]
+            A short concluding paragraph can tie together the long-term trend, yearly spread, within-day timing,
+            and interactive exploration into one final takeaway.
           </p>
         </div>
       </div>
     </section>
+    -->
 
     <section class="section">
       <div class="container">
