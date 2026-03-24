@@ -15,7 +15,7 @@
       --accent:#9ec5a2;
       --topbar:rgba(17,20,24,0.82);
       --embed-bg:#101317;
-      --maxw:1200px;
+      --maxw:1325px;
       --radius:16px;
     }
 
@@ -285,6 +285,11 @@
       padding:1rem;
     }
 
+    .plot-body.plot-body-embed{
+      padding:0;
+      line-height:0;
+    }
+
     .plot img,
     .plot iframe{
       border-radius:12px;
@@ -295,22 +300,38 @@
       margin:0;
     }
 
-    .feature-plot iframe{
-      min-height:520px;
-    }
-
     .interactive-stack{
       display:grid;
       gap:2rem;
     }
 
-    .plot.tall iframe{
-      min-height:640px;
+    .plot-embed{
+      display:block;
+      width:100%;
+      border:0;
+      overflow:hidden;
     }
 
-    .plot.xl iframe{
-      min-height:760px;
+    .plot-map{
+      background:#ffffff;
     }
+
+    .plot-map .plot-body{
+      padding:0;
+      line-height:0;
+      background:#ffffff;
+    }
+
+    .plot-map .plot-embed{
+      height:760px;
+      background:#ffffff;
+    }
+
+    .violin-embed{
+      height:900px;
+      background:var(--embed-bg);
+    }
+
 
     .note{
       margin-top:1rem;
@@ -329,63 +350,55 @@
         max-width:14ch;
       }
 
-      .feature-plot iframe{
-        min-height:460px;
+      .plot-map .plot-embed{
+        height:740px;
       }
 
-      .plot.tall iframe{
-        min-height:520px;
-      }
-
-      .plot.xl iframe{
-        min-height:600px;
+      .violin-embed{
+        height:780px;
       }
     }
 
     @media (max-width: 640px){
-      .topbar-inner{
-        align-items:flex-start;
-        flex-direction:column;
-        justify-content:center;
-        padding:.8rem 0;
-      }
+  .topbar-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    justify-content:center;
+    padding:.8rem 0;
+  }
 
-      .topbar-right{
-        align-items:flex-start;
-      }
+  .topbar-right{
+    align-items:flex-start;
+  }
 
-      .hero{
-        padding:64px 0 44px;
-      }
+  .hero{
+    padding:64px 0 44px;
+  }
 
-      .section{
-        padding:48px 0;
-      }
+  .section{
+    padding:48px 0;
+  }
 
-      .container{
-        width:min(calc(100% - 1rem), var(--maxw));
-      }
+  .container{
+    width:min(calc(100% - 1rem), var(--maxw));
+  }
 
-      .theme-toggle{
-        padding:.58rem .85rem;
-      }
+  .theme-toggle{
+    padding:.58rem .85rem;
+  }
 
-      .story-block{
-        gap:1.25rem;
-      }
+  .story-block{
+    gap:1.25rem;
+  }
 
-      .feature-plot iframe{
-        min-height:400px;
-      }
+  .plot-map .plot-embed{
+    height:700px;
+  }
 
-      .plot.tall iframe{
-        min-height:480px;
-      }
-
-      .plot.xl iframe{
-        min-height:540px;
-      }
-    }
+  .violin-embed{
+    height:680px;
+  }
+}
   </style>
 </head>
 <body>
@@ -462,7 +475,7 @@
               <span>Counts of drug / narcotic incidents by year</span>
             </div>
             <div class="plot-body">
-              <img src="images/Drug_yearly_trend.png" alt="Yearly trend of drug or narcotic crimes in San Francisco">
+              <img src="images/Drug_yearly_trend_burg.png" alt="Yearly trend of drug or narcotic crimes in San Francisco">
             </div>
           </figure>
 
@@ -504,14 +517,13 @@
             </p>
           </div>
 
-          <figure class="plot feature-plot">
+          <figure class="plot feature-plot plot-map">
             <div class="plot-label">
               <strong>Time-of-day distribution by year</strong>
               <span>How daily timing patterns shift across years</span>
             </div>
-            <div class="plot-body">
-              <!--<img src="images/Violin_box_drug_yearly.png" alt="Violin and box plot for yearly drug or narcotic crime patterns">-->
-               <iframe src="images/drug_quartly_interactive.html" title=""></iframe>
+            <div class="plot-body plot-body-embed">
+              <iframe class="plot-embed" src="images/drug_quartly_interactive.html" title=""></iframe>
             </div>
           </figure>
 
@@ -558,9 +570,8 @@
               <strong>Yearly distribution</strong>
               <span>Distributional view of incident counts</span>
             </div>
-            <div class="plot-body">
-              <!--<img src="images/drug_timeofday_yearly.png" alt="Time-of-day distribution of drug or narcotic crimes by year">-->
-              <iframe src="images/interactive_violin_box_by_district.html" title=""></iframe>
+            <div class="plot-body plot-body-embed">
+              <iframe class="plot-embed violin-embed" src="images/interactive_violin_box_by_district.html" title=""></iframe>
             </div>
           </figure>
 
