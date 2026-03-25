@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Burglary in San Francisco (2015–2025)</title>
+  <title>Burglary in San Francisco (2017–2025)</title>
   <style>
     :root{
       --bg:#111418;
@@ -193,7 +193,7 @@
     }
 
     .section-head{
-      margin-bottom:2rem;
+      margin-bottom:0.8rem;
     }
 
     .section-kicker{
@@ -219,7 +219,7 @@
 
     .story-block{
       display:grid;
-      gap:1.5rem;
+      gap:1.2rem;
     }
 
     .story-intro,
@@ -279,6 +279,10 @@
       margin-top:.2rem;
       color:var(--muted);
       font-size:.9rem;
+    }
+
+    .light-blue-link {
+      color: #66ccff;
     }
 
     .plot-body{
@@ -404,7 +408,7 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">Data Science Portfolio</div>
+      <div class="brand">02806 data visualization project</div>
       <div class="topbar-right">
         <nav class="nav">
           <a href="#overview">Overview</a>
@@ -423,26 +427,29 @@
   <main>
     <section class="hero" id="overview">
       <div class="container">
-        <div class="eyebrow">San Francisco · 2003–2025</div>
-        <h1>Drug / Narcotic Crime Trends</h1>
+        <div class="eyebrow">San Francisco 2017–2025</div>
+        <h1>Covid-19 impact on burglary in SF</h1>
         <p class="lead">
-          This project examines how drug and narcotic-related crime in San Francisco changed from 2003 to 2025.
-          The visualizations below move from the long-run trend to yearly variation and then to within-day timing
-          patterns, creating a more narrative view of how these incidents evolved over time.
+          The focus of this project is to examine, analyze and visualize how the crime of burglary has changed from 2017-2025, specifically how covid-19 impacted the trend. The time range is split into three periods each consisting of three years 
+          such that the basis for comparison is fair. The periods are defined as; <b> before covid;</b> 2017-2019, <b>covid;</b> 2020-2022, <b>after covid; </b> 2023-2025.
+          The data comes from the <a href="https://data.sfgov.org/browse?category=Public+Safety&sortBy=relevance&page=1&pageSize=20" class="light-blue-link">SF governments public and safety crime datasets</a> where "Police Department Incident Reports: 2018 to Present" and
+          "Police Department Incident Reports: Historical 2003 to May 2018" has been merged. The merged dataset consists of the different SF police departments reported incidents from 2003-2026. To enable the analysis in this project, burglary is picked out as a focus crime
+          and the time is restricted to 2017-2025 such that we can evaluate the impact of covid. The project considers all police districts inside of the San Fransico area hence the district "Out of SF" is removed.
+
         </p>
 
         <div class="meta">
           <div class="meta-item">
             <div class="meta-label">Question</div>
-            <div class="meta-value">How has drug / narcotic crime changed over time in San Fransico?</div>
+            <div class="meta-value">How has a world wide pandemic like covid-19 impacted burglary in San Fransico?</div>
           </div>
           <div class="meta-item">
             <div class="meta-label">Time period</div>
-            <div class="meta-value">2003–2025</div>
+            <div class="meta-value">2017–2025</div>
           </div>
           <div class="meta-item">
-            <div class="meta-label">Views</div>
-            <div class="meta-value">Trends, time-of-day, interactive exploration</div>
+            <div class="meta-label">Visualizations</div>
+            <div class="meta-value">Trend lines, Animated map, Interactive plot</div>
           </div>
         </div>
       </div>
@@ -454,25 +461,22 @@
           <div class="section-kicker">Part 1</div>
           <h2>The long-run trajectory</h2>
           <p>
-            The first chart establishes the broadest pattern in the dataset. It gives a high-level view of how
-            drug and narcotic incidents rose, fell, or stabilized across the full period before moving into more
-            detailed distributional views.
+            The projects start out by establishing the general trend for burglary. 
+            This figure gives an overview of how the trend has evovled before, during and after covid. 
           </p>
         </div>
-
         <div class="story-block">
           <div class="story-intro">
             <p>
-              Looking first at annual totals provides the clearest entry point into the story. Before asking how
-              incidents vary by hour or by distribution, it helps to see the overall shape of change across two
-              decades and identify the major turning points in the series.
+              The plot is constructed by aggregating the total amount of burglary incidents by year whereafter incidents vs year is plotted for each distinct district.
+              The covid-19 period is highlighted by red such that it is easy to identify the before, during and after period.
             </p>
           </div>
 
           <figure class="plot feature-plot">
             <div class="plot-label">
               <strong>Yearly trend</strong>
-              <span>Counts of drug / narcotic incidents by year</span>
+              <span>Counts burglary in each SF district by year</span>
             </div>
             <div class="plot-body">
               <img src="images/Drug_yearly_trend_burg.png" alt="Yearly trend of drug or narcotic crimes in San Francisco">
@@ -482,15 +486,18 @@
           <div class="story-body">
             <h3>Interpretation</h3>
             <p>
-              This chart acts as the backbone of the page. Use this space to explain the most important changes in
-              the yearly pattern: where the series climbs, where it falls, and whether recent years suggest a new
-              phase or a continuation of earlier behavior. The goal is to leave the reader with one strong summary
-              idea before they continue to the more detailed views below.
+              The figure shows how the general trend of burglary incidents has evovled over time. Many of the districts have had an impact of burglary incidents by covid
+              . Looking at Northern, Taraval, Ingleside, Richmond and Park relativly stable incident counts before covid, whereas an increase happens in 2020 just as covid begins. 
+              Northern and Park's incidents peak during 2020, whereafter they begin to decrease steadily throughout and after the covid period. Taraval and Ingleside sees an increase during covid and a peak in 2021
+              whereafter it remains fairly stable throughout and after covid untill 2025 where we see a decrease to fewer incidents than before covid. Richmond also peaks in 2020 however 
+              the increased amount of burglary incidents remain untill 2021 whereafter it begins to decrease and normalize after covid. Districts like Central, Southern and Tenderloin
+              sees a small increase in incidents from 2019 to 2020, however the increase magnitude is much smaller than for the previous mentioned districts. The incident trends for these districts begins to decrease after 
+              2020 and keeps decreasing after covid. Lastly Bayview steadily increase from 2020-2022 where it peaks in covid 2022 and begins to decrease again in the after covid period.
             </p>
             <ul>
-              <li>Point out the largest increases or declines.</li>
-              <li>Identify any years or periods that appear relatively stable.</li>
-              <li>End with one clear takeaway that frames the rest of the narrative.</li>
+              <li>All districts has a larger proportion of burglary incidents during covid compared to before and after </li>
+              <li>Districts most impacted by covid are {Richmond, Park, Northern}</li>
+              <li>Districts least impacted by covid are {Bayview, Southern, Tenderloin}</li>
             </ul>
           </div>
         </div>
@@ -501,26 +508,30 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Part 2</div>
-          <h2>Variation across years</h2>
+          <h2>Variation of burglary incidents across years throughout districts</h2>
           <p>
-            After the long-run trend, the next step is to ask how activity is distributed within each year.
-            This adds nuance by showing spread, concentration, and irregularity that annual totals alone cannot capture.
+            We started by investigating the long term trends throgh raw incident counts. This next illustration aims to give a more naunced overview of how covid affected the amount of 
+            burglary incidents throughout the years.
+
           </p>
         </div>
 
         <div class="story-block">
           <div class="story-intro">
             <p>
-              A distributional chart helps reveal whether some years are tightly concentrated around certain time
-              patterns while others are more diffuse or volatile. It shifts the emphasis from total volume to the
-              shape of activity within each year.
+              This choropleth map shows the spatio temporal distribution of burglary across the SF plice districts in our time period.
+              Each district is colored according to its burglary level in a given quarter of each year relative to its own average 2017-2019 baseline. 
+              This means that a value above 1 means that the district experienced more burglary than the baseline while a value less than 1 indicate less burglary than the baseline.
+              The animated map makes it possible to see how the burglary patterns change over time for each district. Note that since the
+              measure is normalized based on each districts own historical baseline, the visualization illustrates the relative change from the past to the present,
+              meaning it tells how strongly each districts were affected over time.
             </p>
           </div>
 
           <figure class="plot feature-plot plot-map">
             <div class="plot-label">
-              <strong>Time-of-day distribution by year</strong>
-              <span>How daily timing patterns shift across years</span>
+              <strong>Relative burglary incident count by year and district</strong>
+              <span>How the relative burglary patterns shift across years</span>
             </div>
             <div class="plot-body plot-body-embed">
               <iframe class="plot-embed" src="images/drug_quartly_interactive.html" title=""></iframe>
