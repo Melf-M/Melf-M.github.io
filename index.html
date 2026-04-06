@@ -428,15 +428,15 @@
     <section class="hero" id="overview">
       <div class="container">
         <div class="eyebrow">San Francisco 2017–2025</div>
-        <h1>Burglary in San Francisco (SF) before, after and during Covid-19</h1>
+        <h1>Burglary in San Francisco (SF) before, during and after Covid-19</h1>
         <p class="lead">
-          This project investigates changes in burglary incidents during 2017-2025 in San Francisco with a focus on the changes during Covid-19. To make comparison possible, the period is split into three periods; <b> before covid;</b> 2017-2019, <b>covid;</b> 2020-2022, <b>after covid; </b> 2023-2025. The analysis is based on two merged crime datasets available from San Francisco police department incident reports <a href="https://data.sfgov.org/browse?category=Public+Safety&sortBy=relevance&page=1&pageSize=20" class="light-blue-link">SF governments public and safety crime datasets</a>. The analysis is based on districts inside of SF hence the district "Out of SF" is excluded.
+          This project investigates changes in burglary incidents from 2017-2025 in San Francisco with a focus on the changes during Covid-19. To make comparison possible, the period is split into three periods; <b> before covid;</b> 2017-2019, <b>covid;</b> 2020-2022, <b>after covid; </b> 2023-2025. The analysis is based on two merged crime datasets available from San Francisco police department incident reports <a href="https://data.sfgov.org/browse?category=Public+Safety&sortBy=relevance&page=1&pageSize=20" class="light-blue-link">SF governments public and safety crime datasets</a>. The analysis is based on districts inside of SF hence the district "Out of SF" is excluded.
         </p>
 
         <div class="meta">
           <div class="meta-item">
             <div class="meta-label">Question</div>
-            <div class="meta-value">How did burglary in San Fracisco change during a worldwide pandemic like Covid-19.</div>
+            <div class="meta-value">How did burglary in San Francisco change during a worldwide pandemic like Covid-19?</div>
           </div>
           <div class="meta-item">
             <div class="meta-label">Time period</div>
@@ -456,7 +456,7 @@
           <div class="section-kicker"></div>
           <h2>The long-run trajectory</h2>
           <p>
-            The project start by establishing the general trend for burglary. 
+            The project start by establishing the general trend in burglary. 
           </p>
         </div>
         <div class="story-block">
@@ -473,7 +473,7 @@
               </span>
             </div>
             <div class="plot-body">
-              <img src="images/Drug_yearly_trend_burg.png" alt="Yearly trend of drug or narcotic crimes in San Francisco">
+              <img src="images/burglary_trend.png" alt="Yearly trend of burglary crime in San Francisco">
             </div>
           </figure>
 
@@ -513,7 +513,7 @@
               </span>
             </div>
             <div class="plot-body plot-body-embed">
-              <iframe class="plot-embed" src="images/drug_quartly_interactive.html" title=""></iframe>
+              <iframe class="plot-embed" src="images/burg_quartly_interactive.html" title=""></iframe>
             </div>
           </figure>
 
@@ -582,7 +582,7 @@
           <div class="story-body">
               <p>
                 Overall, the findings suggest that covid did not affect all districts of San Francisco, but it seems to be associated with an increase of burglary in several districts such as Richmond, Park and Northern. 
-                Tenderloin, Ingleside and Taraval also had an increase during Covid which might suggest that these districts were also affected but not as much. Finally, it is hard to conclude that
+                Tenderloin, Ingleside and Taraval also had an increase during Covid which might suggest that these districts also saw change but not as much. Finally, it is hard to conclude that
                 districts such as Central, Southern and Bayview were impacted during covid since their incident share was very similar to the years preceding covid.  These findings are consistent with multiple articles on the subject. SFGATE's article 
                 <a href="https://www.sfgate.com/bayarea/article/Burglaries-San-Francisco-increase-homes-15594895.php" class="light-blue-link">One SF neighborhood sees 75% increase in burglaries</a> explain how all districts saw an increase in burglary incidents with Park experiencing the largest bump.
                 The article points out that the SFPD stated that they do not have an "exact cause" for the increase, but it is clear why more people are in their homes when the thieves break in. Further sources like <a href="https://missionlocal.org/2023/01/explore-how-crime-changed-in-2022/" class="light-blue-link">Explore: How crime changed in 2022</a> explains how there was an increase in residential burglaries that was unique to San Francisco compared to other large cities stated by police director Magnus Lofstrom. 
@@ -606,7 +606,7 @@
     (function () {
       const body = document.body;
       const toggle = document.getElementById('themeToggle');
-      const storageKey = 'sf-drug-theme';
+      const storageKey = 'sf-burg-theme';
 
       function applyTheme(mode) {
         const isLight = mode === 'light';
