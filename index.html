@@ -169,7 +169,7 @@
     }
 
     .meta-item{
-      min-width:180px;
+      min-width:150px;
     }
 
     .meta-label{
@@ -413,9 +413,8 @@
         <nav class="nav">
           <a href="#overview">Overview</a>
           <a href="#trend">Trend</a>
-          <a href="#patterns">Patterns</a>
+          <a href="#patterns">Relative changes</a>
           <a href="#distribution">Distribution</a>
-          <!--<a href="#interactive">Interactive</a>-->
           <a href="#conclusion">Conclusion</a>
         </nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
@@ -430,13 +429,6 @@
       <div class="container">
         <div class="eyebrow">San Francisco 2017–2025</div>
         <h1>Burglary in San Francisco (SF) before, after and during Covid-19</h1>
-        <!--<p class="lead">
-          The focus of this project is to examine, analyze and visualize how the crime of burglary has changed from 2017-2025, specifically how Covid-19 impacted the trend. The time range is split into three periods each consisting of three years 
-          such that the basis for comparison is fair. The periods are defined as; <b> before covid;</b> 2017-2019, <b>covid;</b> 2020-2022, <b>after covid; </b> 2023-2025.
-          The data comes from the <a href="https://data.sfgov.org/browse?category=Public+Safety&sortBy=relevance&page=1&pageSize=20" class="light-blue-link">SF governments public and safety crime datasets</a> where "Police Department Incident Reports: 2018 to Present" and
-          "Police Department Incident Reports: Historical 2003 to May 2018" has been merged. The merged dataset consists of the different SF police departments' reported incidents from 2003-2026. To enable the analysis in this project, burglary is picked out as a focus crime
-          and the time is restricted to 2017-2025 such that we can evaluate the impact of covid. The project considers all police districts inside of the San Francisco area hence the district "Out of SF" is removed.
-        </p>-->
         <p class="lead">
           This project investigates changes in burglary incidents during 2017-2025 in San Francisco with a focus on the changes during Covid-19. To make comparison possible, the period is split into three periods; <b> before covid;</b> 2017-2019, <b>covid;</b> 2020-2022, <b>after covid; </b> 2023-2025. The analysis is based on two merged crime datasets available from San Francisco police department incident reports <a href="https://data.sfgov.org/browse?category=Public+Safety&sortBy=relevance&page=1&pageSize=20" class="light-blue-link">SF governments public and safety crime datasets</a>. The analysis is based on districts inside of SF hence the district "Out of SF" is excluded.
         </p>
@@ -465,7 +457,6 @@
           <h2>The long-run trajectory</h2>
           <p>
             The project start by establishing the general trend for burglary. 
-            <!--This figure gives an overview of how the trend has evovled before, during and after covid. -->
           </p>
         </div>
         <div class="story-block">
@@ -488,23 +479,9 @@
 
           <div class="story-body">
             <h3>Interpretation</h3>
-            <!--<p>
-              The figure shows how the general trend of burglary incidents has evovled over time. Many of the districts have had an impact of burglary incidents by covid
-              . Looking at Northern, Taraval, Ingleside, Richmond and Park relativly stable incident counts before covid, whereas an increase happens in 2020 just as covid begins. 
-              Northern and Park's incidents peak during 2020, whereafter they begin to decrease steadily throughout and after the covid period. Taraval and Ingleside sees an increase during covid and a peak in 2021
-              whereafter it remains fairly stable throughout and after covid untill 2025 where we see a decrease to fewer incidents than before covid. Richmond also peaks in 2020 however 
-              the increased amount of burglary incidents remain untill 2021 whereafter it begins to decrease and normalize after covid. Districts like Central, Southern and Tenderloin
-              sees a small increase in incidents from 2019 to 2020, however the increase magnitude is much smaller than for the previous mentioned districts. The incident trends for these districts begins to decrease after 
-              2020 and keeps decreasing after covid. Lastly Bayview steadily increase from 2020-2022 where it peaks in covid 2022 and begins to decrease again in the after covid period.
-            </p>-->
             <p>
               Northern, Richmond and Park show relatively large burglary incidents increase at the start of covid and peak in 2020 before decreasing steadily after the covid period. Central, Southern and Tenderloin show similar tendencies but on a smaller scale. Taraval and Ingleside see an increase during covid and peak in 2021, whereafter it remains stable until 2025 where it decreases to count levels that are lower than before covid. Bayview also has a small steady increase from 2020-2022 where it peaks in 2022 and decreases after.
             </p>
-            <!--<ul>
-              <li>All districts seem to have a larger proportion of burglary incidents during covid compared to before and after </li>
-              <li>Some district seem to be impacted in a larger scale e.g. {Richmond, Park, Northern}</li>
-              <li>Districts with least relative change in covid are  {Bayview, Southern, Tenderloin}</li>
-            </ul>-->
           </div>
         </div>
       </div>
@@ -533,9 +510,7 @@
               Each district is colored according to its burglary level in a given quarter of each year relative to its own average 2017-2019 baseline. The metric is <b>relative level = current_quarter_count/baseline_average</b>.
               A value above 1 means that the district experienced more burglary than the baseline e.g. a value of 1.2 means that the burglary incidents are 20% higher than the districts baseline. The main observation on this figure is that 
               many districts a distruption in the pattern during Covid, especially in 2020 and 2021. This disruption varies in magnitude across districts, while the years after Covid were relativly similar to the baseline. 
-              <!--This makes it possible to observe how burglary patterns change over time
-              This means that a value above 1 means that the district experienced more burglary than the baseline while a value less than 1 indicate less burglary than the baseline e.g. a value of 1.2 means the burglary count is 20% higher than the district's 2017-2019 average.
-              The animated map makes it possible to see how the burglary patterns change over time for each district.--></span>
+              </span>
             </div>
             <div class="plot-body plot-body-embed">
               <iframe class="plot-embed" src="images/drug_quartly_interactive.html" title=""></iframe>
@@ -544,29 +519,10 @@
 
           <div class="story-body">
             <h3>Interpretation</h3>
-            <!--<p>
-              The figure shows that most districts has similar burglary levels during the years of 2017-2019, some with higher relative counts and some with lower; which is expected since the average baseline consists of these three years. 
-              The first quarter of 2020 has the same overall trend whereas the second quarter has a massive increase compared to the baseline. Districts like Richmond, Park, Mission, Southern, Central and Tenderloin all has burglary counts that are around 60-90% larger than the baseline
-              with Northern reaching the largest increase of 127%. Taravel, Ingleside and Bayview does not see this large increase like the other districts. The third quarter of 2020 show Central, Tendeloin and Mission still has elovated burglary levels
-              of around 50%, with Southern dropping to similar levels as the previous baseline. Taravel, Ingleside and Bayview remain close to the baseline, however Richmond, Park and Northern all has over 125% increase of burglary levels. Fourth quarter of 2020 still show extreme 
-              increases in Richmond, Park and Northern with Mission and Tenderloin also keeping a larger incident count than their baseline. Ditricts like Taravel and Ingleside which has until now been unaffected also see higher levels of 27-50% increase compared to their baseline. Lastly Bayview keeps having levels of around 1 or a little under with Southern also seeing lower values.
-               For the rest of the covid period it is observed that during 2021 most districts have larger burglary levels compared to the baseline whereas seen in 2020, Richmond, Park, Mission, Park and Northern are most affecte. The less affected districts of Taravel, Ingleside, Southern, Central and Bayview 
-               is generally observed to not be as affected however also has periods of increase e.g. Taravel and Ingleside burglary counts peak during the third quarter with increases of 50-70% and Bayview, Southern, Central with 10-26% increase in the fourth quarter of 2024.
-               During the last year of the covid period 2022 many districts see burglary levels stabilizing and going toward their baseline average. The first two quarters of 2022 show the higher affected districts of e.g. Richmond, Park and Mission having at most 20-70% increase with most of the other districts being around or under the baseline. The third quarter of 2022 show most districts having burglary levels 
-               of around the baseline with some being at most 30% over and a single district in Park being 60% over still. The last quarter of 2022 show a similar pattern to the baseline quarters with almsot all districts being close to 1 and a few districts having a slightly higher level. Generally the period after covid 2023-2025 show similar patterns as the period before covid. 
-               There are some quarters which show elovated levels of burglary in mostly the same districts; Richmond, Taraval, Ingleside, Mission, whereas the rest of the districts keep a relativly stable pattern, some quarters its slightly higher or lower, however no clear pattern on these are present. Lastly during 2025 the burglary levels were generally lower for all districts compared to both covid and the baseline. 
-            </p>-->
             <p>
-              The figure shows that most districts had similar burglary levels during 2017-2019, as expected since these years define the baseline.The first quarter of 2020 is like the baseline trend whereas burglaries rose massively during the second quarter. The largest increases happened in Park, Richmond and Northern while Mission, Southern, Central and Tenderloin also rose substantially. Most of these districts saw increases of 50-90% compared to baseline with Northern reaching 127%.  Throughout 2020 many of these districts had elevated burglary levels compared to the baseline with Park, Northern and Richmond having extreme increases. Taraval, Ingleside and Bayview initially remained near baseline, however Taraval and Ingleside also increase later in 2020. 
-              During 2021 most districts had larger burglary counts compared to baseline, showing same patterns as 2020. Richmond, Park, Mission, Northern had large relative burglary increases with Taraval, Ingleside, Southern, Central and Bayview observed to be smaller. Taraval and Ingleside saw an increase of 50-70% in some periods with Bayview, Southern and Central had at most around 10-26% increase in the fourth quarter of 2021. During 2022 many districts saw burglary levels stabilizing compared to the baseline. The first half has districts like Richmond, Park and Mission still showing elevated incident counts however most other districts were relatively close to their baseline. The last half of 2022 shows most districts stabilizing and having burglary levels that are close to their baseline, most within 30% or lower with decreasing tendencies. The period after covid 2023-2025 shows similar patterns as the period before covid.
-              Some quarters after covid show elevated levels of burglary in mostly the same districts; Richmond, Taraval, Ingleside, Mission, whereas the rest of the districts keep a relatively stable pattern, some quarters its larger, some its lower. Lastly during 2025 the burglary levels were generally lower for all districts compared to both covid and the baseline. 
+              The map shows that most districts had similar burglary levels during 2017-2019, as expected since these years define the baseline. The first quarter of 2020 is like the baseline trend whereas burglaries rose massively during the second quarter. The largest increases happened in Park, Richmond and Northern while Mission, Southern, Central and Tenderloin also rose substantially. Most of these districts saw increases of 50-90% compared to baseline with Northern reaching 127% in one quarter. During the rest of 2020 and most of 2021 the same districts continued to show elevated burglary levels with almost all districts having a larger relative burglary level. Taraval, Ingleside and Bayview stay closer to their baseline at first, however Ingleside and Taraval also rose in parts of 2020 and 2021. By 2022 most districts began to move back toward their baseline, most within 30% of their baseline. There were still some districts like Richmond, Park and Mission having elevated levels in 2022, however in the period after Covid 2023-2025 all districts began to show the same trend as the baseline before Covid with 2025 having historical low incident levels compared to the baseline.
+              Overall the map suggest that an increase in burglary levels were present throughout Covid, however only concentrated in a subset of districts.
             </p>
-           <!--<ul>
-              <li>Many districts saw changes during the covid pandemic, which is consistent with our findings in the trend graphs.</li>
-              <li>Richmond, Park, Mission, Northern all saw a large increase in burglary incidents during the peak of covid compared to baseline</li>
-              <li>Taraval, Ingleside, Tenderloin were moderately affected by covid and had smaller but still significant increases of burglary incidents during covid compared to baseline</li>
-              <li>Central, Southern, Bayview were most stable in burglary incidents and affected the least by covid compared to baseline</li>
-            </ul>-->
           </div>
         </div>
       </div>
@@ -576,9 +532,9 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>Distributional focus of burglary incidents over the years</h2>
+          <h2>Distribution of burglary incidents across years and districts</h2>
           <p>
-            This section will take a deeper look into how the distribution of burglary incidents has changed throughout the years, while not comparing directly to a baseline. 
+            This section will take a deeper look into how the distribution of burglary incidents has changed throughout the years, without comparing directly to a baseline. 
           </p>
         </div>
 
@@ -590,10 +546,11 @@
           <figure class="plot feature-plot">
             <div class="plot-label">
               <strong>Interactive distributional view of burglary incident counts through the years.</strong>
-              <span> The figure is an interactive visualization which show both the boxplot of incidents throughout the years but also the distributon of the incident counts through a violin plot. 
+              <span> The figure is an interactive visualization which combines boxplots and violins to show how burglary incident counts has changed throughout the districts across years. 
               It is possibly to hover over the different years in each district to get different statistics on a year to year basis. The figure allows toggling different districts, zooming in on
-              parts of the data and sorting the districts by different metrics.
-              <!--and zooming such that one can isolate interesting districts and further one can sort the districts by different metrics to investigate different focus points.--></span>
+              parts of the data and sorting the districts by different metrics. The figure reveals how burglary incidents spread across the years and whether they are more concentrated throughout Covid. The 
+              main takeaway from this figure is that some districts has a larger concentration of incidents during Covid, however some seem not to be affected.
+              </span>
             </div>
             <div class="plot-body plot-body-embed">
               <iframe class="plot-embed violin-embed" src="images/interactive_violin_box_by_district.html" title=""></iframe>
@@ -602,28 +559,10 @@
 
           <div class="story-body">
             <h3>Interpretation</h3>
-            <!--<p>
-              By exploring the interactive illustrations it is clear that all the districts see their peak year in terms of incident count during one of the covid period years. The most dominant being 2020 with 
-              6/10 districts having their most incidents during this specific year. The boxplots reveal that the median is usually around 2021 meaning that for the majority of districts half of the burglary incidents
-              occur before and after 2021. By further investigation we can see that most of the boxes has their IQR from 2019 to 2023 with a few deviations of Richmond having 2020-2023, Central 2019-2022 and Bayview 2018-2023. This further supports
-              that 50% of the burglary incidents are concentrated around the covid period, only with Bayview having a larger IQR meaning that the incident counts are more spread through the years preceeding covid. This incidates that there could be some overrepresentation during the covid period
-              however it is not yet enough imformation since we have to investigate how much of the incident shares lie in the years 2019 and 20223. By sorting the districts by 
-              highest covid share it is seen that many districts that were revealed to have an increase in the covid period from the choropleth map are indeed also the ones with the largest covid incident share; Park, Northern, Richmond, Mission. However 
-              looking at the % share of incidents before, during and after covid it is observed that almost all districts has rather interesting distributional changes of the incidents. Districts like
-              Park, Northern, Richond, Mission, Tenderloin, Ingleside and Taraval has very similar % incident share both before and after covid, with a significant increase of the share during the covid period, whereas Central, Southern and Bayview has very large
-              % share of incidents before and during covid with a very large decrease in incidents after covid. Looking at the violins this is further supported as the distributions of incidents for Central and Southern which show that the incident distributions are similar during 2017-2022 with a peak during 2020, whereafter the incident counts begin to decrease from 2022-2025. 
-              Bayview has a more uniform distribution throughout 2017-2022 with a peak during 2022 and afterward the incidents begin to decrease. Violins for districts like Park, Northern, Richmond and Mission show a clear pattern with lower incident counts during before and after covid and a significant spike in the distribution during the covid period. 
-              These districts all have over 40% of their total incidents occuring during the covid period hence general majority share compared to both before and after. Lastly Tenderloin, Ingleside and Taraval show similar distributional patterns with more a larger incident share during covid and a more stabilized pattern before and after covid, however these districts are a little more uniform.
-            </p>-->
             <p>
-              By exploring the interactive illustrations, all the districts see their peak year in terms of incidents during one of the covid period years. The most dominant being 2020 with 6/10 districts have had the most incidents during this specific year. The boxplots reveal that the median is usually around 2021 meaning that for the majority of districts half of the burglary incidents occur before and after 2021. By further investigation we can see that most of the boxes have IQR from 2019 to 2023 with a few deviations of Richmond (2020-2023), Central (2019-2022) and (Bayview 2018-2023). This means that 50% of the burglary incidents for most districts are concentrated around the covid period, except Bayview that has incident counts spread more through the years preceding covid.
-              Sorting the districts by highest covid share it is seen that many districts that were revealed to have an increase in the covid period from the choropleth map are indeed also the ones with the largest covid incident share, Park, Northern, Richmond, Mission. However, the percentage share of incidents before, during and after covid show that almost all districts have rather interesting distributional changes. Districts like Park, Northern, Richmond, Mission, Tenderloin, Ingleside and Taraval have very similar percent incident share both before and after covid, with a significant increase of the share during the covid period, whereas Central, Southern and Bayview have very large percent share of incidents before and during covid with a very large decrease in incidents after covid. Looking at the violins, this is further supported as the distributions of incidents for Central and Southern are similar during 2017-2022 with a peak during 2020, whereafter the incident counts begin to decrease from 2022-2025. Bayview has a more uniform distribution throughout 2017-2022 peaking in 2022 and afterward decreasing. Violins for districts like Park, Northern, Richmond and Mission show a clear pattern with lower incident counts before and after covid and a significant spike in the distribution during the covid period. These districts all have over 40% of their total incidents occurring during the covid period hence a majority share compared to both before and after. Lastly Tenderloin, Ingleside and Taraval show similar distributional patterns with a larger incident share during covid and a more stabilized pattern before and after covid, however these districts are a little more uniform.
+              By exploring the interactive illustrations, all the districts see their peak year in terms of incidents during one of the covid period years. The most dominant being 2020 with 6 out of 10 districts have had the most incidents during this specific year. The boxplots reveal that the median is usually around 2021 meaning that for the majority of districts half of the burglary incidents occur before and after 2021. By further investigation we can also see that most of the boxes have IQR from 2019 to 2023 with a few deviations of Richmond (2020-2023), Central (2019-2022) and (Bayview 2018-2023). 
+              Sorting the districts by highest covid share it is seen that many districts that were revealed to have an increase in the covid period from the choropleth map are indeed also the ones with the largest covid incident share namely, Park, Northern, Richmond, Mission. These districts together with Tenderloin, Ingleside and Taraval have similar incident shares before and after covid with an increase during Covid. In contrast Central, Southern and Bayview show a distribution that is flatter with similar shares before and during covid with a decrease in incidents after Covid. The violins shapes support this observation, especially for Park, Northern, Richmond and Mission show large concentration around the Covid period, while Bayview appear more uniform and Central, Southern show a milder peak followed by a decline after 2021. Lastly Tenderloin, Ingleside and Taraval also show larger concentration during Covid, however the distribution appears a little more uniform. Overall, the figure supports that there was an increase in incidents during Covid-19 for many districts, however the magnitude was very different.
             </p>
-            <!--<ul>
-              <li>Park, Northern, Richmond, Mission appear to have a significant increase in the share of burglary incidents during covid compared to both before and after.</li>
-              <li>Tenderloin, Ingleside, Taraval appear to have a slight increase in the shary of burglary incidents during covid compared to both before and after.</li>
-              <li>Central, Southern, Taravel does not appear to have an increase in the share of burglary incidents during covid compared to before. There is however a clear decrease in incidents after covid.</li>
-            </ul>-->
           </div>
         </div>
       </div>
@@ -635,142 +574,25 @@
           <div class="section-kicker">Reflection & Conclusion</div>
           <h2>What changed during Covid-19?</h2>
           <p>
-            <!--To conclude the findings based on the trend plot, the relative quarterly map, and the yearly distribution view,
-            the -->
-            In conclusion, overall patterns suggests that burglary in San Francisco was partly affected during the covid period,
-            though the strength of that effect differed across police districts.
+            In conclusion, overall patterns suggest that burglary in San Francisco saw changes during the covid period,
+            though the strength of that change were different across police districts.
           </p>
         </div>
         <div class="story-block">
           <div class="story-body">
-              <!--<p>The yearly trend lines gave an overview of the districts and showed that many districts experienced increases of burglary upon entering covid. Several 
-                districts showing peaks of around 2020 or 2021 before beginning to decline afterward again. The quarterly choropleth plot supported this by giving an overview of how the districts rose above their 
-                own 2017-2019 baseline, specially during 2020 and 2021. Lastly in the distributional analysis it was shown that incidents were often concentrated around the covid years in the boxplots. Upon further analysis it was revealed 
-                in the violins that some district distributional shapes peaked during covid and had significant increases compared to both before and after. Districts such as Park, Northern, Richmond and Mission appear to have been affected the most
-                with clear incident increase in 2020-2022, while Central, Southern and Bayview were more stable and harder to distinguish whether covid had any impact.
-              </p>-->
               <p>
-                Overall the findings suggest that covid did not affect all districts of San Francisco but it seems to be associated with an increase of burglary in several districts such as Richmond, Park and Northern. 
-                Tenderloin, Ingleside and Taraval also had an increase during covid which might suggest that these districts were also affected but not as much. Finally it is hard to conclude that
-                districts such as Central, Southern and Bayview were impacted during covid since their incident share were very similar to the years preceeding covid.  These findings are consistent with multiple articles on the subject. SFGATE's article 
-                <a href="https://www.sfgate.com/bayarea/article/Burglaries-San-Francisco-increase-homes-15594895.php" class="light-blue-link">One SF neighborhood sees 75% increase in burglaries</a> explain how all districts saw an increase in burglary incidents with Park experiencing the largest bump and "The Mission District is up 75%; Northern 58% (Western Addition, Pacific Heights, Marina); Tenderloin 49%; Richmond 50%; Ingleside 44%; Central (Russian Hill, Chinatown, North Beach) 17%; Taraval 7%; and Bayview 1.7%".
-                The article points out that the SFPD stated that they do not have an "exact cause" for the increase, but it is clear why more people are in their homes when the theieves break in (covid). Further sources like <a href="https://missionlocal.org/2023/01/explore-how-crime-changed-in-2022/" class="light-blue-link">Explore: How crime changed in 2022</a> explains how there was an increase in residential burglaries that was unique to San Francisco compared to other large cities stated by police director Magnus Lofstrom. 
-                The article mentions that burglaries rose by over 50% during the period between 2019 and 2020 where Lofstrom explains the unusual increase in the city by many San Fransicans deciding to live and work outside the city in the early pandemi, leaving properties unguarded.
-                Lastly <a href="https://counciloncj.org/crime-in-san-francisco-what-you-need-to-know/" class="light-blue-link">Crime in San Francisco: What You Need to Know</a> show San Francisco burglary rates from 2018 to 2025 with both residential and non-residential burglary seeing a large increase from 2018/2019 to 2020 and peaking in 2021 whereafter it begins to decrease steadily toward 2025. 
+                Overall, the findings suggest that covid did not affect all districts of San Francisco, but it seems to be associated with an increase of burglary in several districts such as Richmond, Park and Northern. 
+                Tenderloin, Ingleside and Taraval also had an increase during Covid which might suggest that these districts were also affected but not as much. Finally, it is hard to conclude that
+                districts such as Central, Southern and Bayview were impacted during covid since their incident share was very similar to the years preceding covid.  These findings are consistent with multiple articles on the subject. SFGATE's article 
+                <a href="https://www.sfgate.com/bayarea/article/Burglaries-San-Francisco-increase-homes-15594895.php" class="light-blue-link">One SF neighborhood sees 75% increase in burglaries</a> explain how all districts saw an increase in burglary incidents with Park experiencing the largest bump.
+                The article points out that the SFPD stated that they do not have an "exact cause" for the increase, but it is clear why more people are in their homes when the thieves break in. Further sources like <a href="https://missionlocal.org/2023/01/explore-how-crime-changed-in-2022/" class="light-blue-link">Explore: How crime changed in 2022</a> explains how there was an increase in residential burglaries that was unique to San Francisco compared to other large cities stated by police director Magnus Lofstrom. 
+                The article mentions that burglaries rose by over 50% during the period between 2019 and 2020 where Lofstrom explains the unusual increase in the city by many San Franciscans deciding to live and work outside the city in the early pandemic, leaving properties unguarded.
+                Lastly <a href="https://counciloncj.org/crime-in-san-francisco-what-you-need-to-know/" class="light-blue-link">Crime in San Francisco: What You Need to Know</a> shows SF burglary rates from 2018 to 2025 with both residential and non-residential burglary seeing a large increase from 2018/2019 to 2020 and peaking in 2021 whereafter it begins to decrease steadily toward 2025. 
                 </p>
           </div>
         </div>
       </div>
     </section>
-    <!--
-    <section class="section" id="interactive">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">Part 4</div>
-          <h2>Interactive views</h2>
-          <p>
-            The interactive section extends the static narrative by letting the reader inspect motion, seasonality,
-            and normalized structure in more detail while still following a guided editorial flow.
-          </p>
-        </div>
-
-        <div class="interactive-stack">
-          <div class="story-block">
-            <div class="story-intro">
-              <p>
-                This animated view introduces movement and change over time. It can help the reader see evolution
-                that feels less immediate in a single static chart and acts as a bridge between summary and exploration.
-              </p>
-            </div>
-
-            <figure class="plot tall feature-plot">
-              <div class="plot-label">
-                <strong>Animated view</strong>
-                <span>Use this embedded animation to introduce motion or evolving structure in the data</span>
-              </div>
-              <div class="plot-body">
-                <iframe src="images/sf_drug_use.html" title="Animated San Francisco drug use view"></iframe>
-              </div>
-            </figure>
-
-            <div class="story-body">
-              <h3>Interpretation</h3>
-              <p>
-                Explain what changes in the animation, what the reader should watch for, and how the motion helps
-                reinforce or complicate the earlier static trend story.
-              </p>
-              <ul>
-                <li>Describe the main changing element in the animation.</li>
-                <li>Tell the reader what pattern is most important to notice.</li>
-                <li>Connect the animation back to the narrative above.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="story-block">
-            <div class="story-intro">
-              <p>
-                After the animated view, the quarterly interactive chart gives the reader more control while still
-                staying close to the core narrative structure.
-              </p>
-            </div>
-
-            <figure class="plot xl feature-plot">
-              <div class="plot-label">
-                <strong>Quarterly interactive view</strong>
-                <span>Explore shifts and seasonality with a larger frame</span>
-              </div>
-              <div class="plot-body">
-                <iframe src="images/drug_quartly_interactive.html" title="Interactive quarterly view"></iframe>
-              </div>
-            </figure>
-
-            <div class="story-body">
-              <h3>Interpretation</h3>
-              <p>
-                Use this section to explain what the quarterly scale reveals that is not obvious in the annual view,
-                especially around shorter-term movement, seasonality, or repeated fluctuations.
-              </p>
-            </div>
-          </div>
-
-          <div class="story-block">
-            <div class="story-intro">
-              <p>
-                The final interactive view lets the reader compare patterns after adjusting for differences in scale,
-                making it easier to focus on shape rather than absolute magnitude.
-              </p>
-            </div>
-
-            <figure class="plot xl feature-plot">
-              <div class="plot-label">
-                <strong>Normalized count distribution</strong>
-                <span>Compare years after adjusting for scale in a wider, taller view</span>
-              </div>
-              <div class="plot-body">
-                <iframe src="images/drug_normalzied_counts_dist.html" title="Interactive normalized counts distribution"></iframe>
-              </div>
-            </figure>
-
-            <div class="story-body">
-              <h3>Interpretation</h3>
-              <p>
-                Use this final block to explain what becomes more visible after normalization and how that deeper
-                comparison supports the larger argument of the page.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="closing">
-          <p class="note">
-            A short concluding paragraph can tie together the long-term trend, yearly spread, within-day timing,
-            and interactive exploration into one final takeaway.
-          </p>
-        </div>
-      </div>
-    </section>
-    -->
 
     <section class="section">
       <div class="container">
